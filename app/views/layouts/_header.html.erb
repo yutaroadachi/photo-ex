@@ -4,8 +4,13 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "ホーム", root_path %></li>
-        <li><%= link_to "サインアップ", '#' %></li>
-        <li><%= link_to "ログイン", '#' %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to "設定", edit_user_registration_path %></li>
+          <li><%= link_to "ログアウト", sign_out_path %></li>
+        <% else %>
+          <li><%= link_to "サインアップ", sign_up_path %></li>
+          <li><%= link_to "ログイン", sign_in_path %></li>
+        <% end %>
       </ul>
     </nav>
   </div>

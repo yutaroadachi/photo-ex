@@ -4,7 +4,9 @@
   </small>
   <nav>
     <ul>
-      <li><%= link_to "写真を展示する", '#' %></li>
+      <% if user_signed_in? %>
+        <li><%= button_to "写真を展示する", '#', class: "btn btn-primary btn-sm" %></li>
+      <% end %>
     </ul>
   </nav>
 </footer>

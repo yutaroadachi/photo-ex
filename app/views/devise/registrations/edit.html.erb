@@ -1,0 +1,34 @@
+<% provide(:title, '設定') %>
+<h1>設定</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      
+      <p>ユーザー情報を変更する<p>
+      
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control', autofocus: true, autocomplete: "name" %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control', autocomplete: "email" %>
+      
+      <%= f.label :current_password %> <i>（本人確認のため、現在のパスワードを入力してください）</i>
+      <%= f.password_field :current_password, class: 'form-control', autocomplete: "current-password" %>
+
+      <%= f.label :password %> <i>（パスワードを変更したくない場合は空欄にしてください）</i>
+      <%= f.password_field :password, class: 'form-control', autocomplete: "new-password" %>
+
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: "new-password" %>
+
+      <%= f.submit "変更", class: "btn btn-primary" %>
+    <% end %>
+    
+    <br />
+    <p>ユーザーを削除する<p>
+    <%= button_to "削除", registration_path(resource_name), data: { confirm: "本当に削除してよろしいですか？" }, method: :delete,
+        class: "btn btn-danger" %>
+  </div>
+</div>
