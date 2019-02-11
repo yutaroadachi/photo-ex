@@ -242,9 +242,9 @@ input {
   }
 }
 
-/* microposts */
+/* posts */
 
-.microposts {
+.posts {
   list-style: none;
   padding: 0;
   li {
@@ -255,7 +255,7 @@ input {
     margin-top: 5em;
     padding-top: 0;
   }
-  .content {
+  .title {
     display: block;
     margin-left: 60px;
     img {
@@ -282,7 +282,7 @@ aside {
   }
 }
 
-span.picture {
+span.photo {
   margin-top: 10px;
   input {
     border: 0;

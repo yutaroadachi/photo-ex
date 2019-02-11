@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :posts, dependent: :destroy
   before_save { self.email = email.downcase }
   validates :name,  presence: true, length: { maximum: 50 }
   devise :database_authenticatable, :registerable, :rememberable, :validatable, :timeoutable, :omniauthable
@@ -18,6 +19,10 @@ class User < ApplicationRecord
     end
     
     user
+  end
+  
+  def feed
+    Post.where("user_id = ?", id)
   end
   
   # 渡された文字列のハッシュ値を返す

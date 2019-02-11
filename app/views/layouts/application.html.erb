@@ -17,11 +17,14 @@
         <div class="alert alert-info alert-dismissible" role="alert">
           <%= notice %>
         </div>
-      <% end %>
-      <% if alert %>
+      <% elsif alert %>
         <div class="alert alert-danger alert-dismissible" role="alert">
           <%= alert %>
         </div>
+      <% else %>
+        <% flash.each do |message_type, message| %>
+          <div class="alert alert-<%= message_type %>"><%= message %></div>
+        <% end %>
       <% end %>
       
       <%= yield %>

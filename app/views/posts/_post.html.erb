@@ -1,0 +1,14 @@
+<li id="post-<%= post.id %>">
+  <%= link_to gravatar_for(post.user, size: 50), post.user %>
+  <span class="user"><%= link_to post.user.name, post.user %></span>
+  <span class="title">
+    <%= image_tag post.photo.url if post.photo? %>
+    <%= post.title %>
+  </span>
+  <span class="timestamp">
+    <%= time_ago_in_words(post.created_at) %>前
+    <% if current_user?(post.user) %>
+      <%= link_to "展示を取り下げる", post, method: :delete, data: { confirm: "本当に取り下げてよろしいですか？" } %>
+    <% end %>
+  </span>
+</li>
