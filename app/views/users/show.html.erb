@@ -7,8 +7,12 @@
         <%= @user.name %>
       </h1>
     </section>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
   </aside>
   <div class="col-md-8">
+    <%= render 'follow_form' if signed_in? %>
     <% if @user.posts.any? %>
       <h3><%= @user.posts.count %>枚の展示</h3>
       <ol class="posts">
