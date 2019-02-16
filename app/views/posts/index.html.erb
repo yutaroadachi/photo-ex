@@ -1,0 +1,15 @@
+<% provide(:title, "写真一覧") %>
+<h1>写真一覧</h1>
+<dl class="search-box">
+  <%= search_form_for @q, url: posts_path do |f| %>
+    <dt><%= f.search_field :title_cont ,placeholder: "写真を検索" %></dt>
+    <dd><%= f.submit "検索", class: "search-btn btn-primary", method: :get %></dd>
+  <% end %>
+</dl>
+<% if @posts %>
+  <%= will_paginate @posts %>
+  <ol class="posts">
+    <%= render @posts %>
+  </ol>
+  <%= will_paginate @posts %>
+<% end %>

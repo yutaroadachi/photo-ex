@@ -157,7 +157,7 @@ aside {
   a {
     float: left;
     padding: 0 10px;
-    border-left: 1px solid $gray-lighter;
+    border-left: 1px solid $gray-medium-light;
     color: gray;
     &:first-child {
       padding-left: 0;
@@ -238,7 +238,7 @@ input {
   li {
     overflow: auto;
     padding: 10px 0;
-    border-bottom: 1px solid $gray-lighter;
+    border-bottom: 1px solid $gray-medium-light;
   }
 }
 
@@ -246,10 +246,11 @@ input {
 
 .posts {
   list-style: none;
-  padding: 0;
+  margin: 0;
   li {
+    overflow: auto;
     padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
+    border-bottom: 1px solid $gray-medium-light;
   }
   .user {
     margin-top: 5em;
@@ -294,6 +295,7 @@ span.photo {
   background-color: lightgray;
 }
 
+/* remember me */
 .radio input[type="radio"],
 .radio-inline input[type="radio"],
 .checkbox input[type="checkbox"],
@@ -301,4 +303,35 @@ span.photo {
   position: absolute;
   margin-left: 0;
   margin-top: 4px \9;
+}
+
+/* searchbox */
+dl.search-box{
+  position: relative;
+  left: 43px;
+  width: 360px;
+  height: 30px;
+}
+
+dl.search-box dt input{
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  line-height: 30px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid $gray-medium-light;
+  border-radius: 7px;
+}
+
+.search-btn{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  line-height: 30px;
+  margin: 0;
+  padding: 0;
+  border-radius: 7px;
 }

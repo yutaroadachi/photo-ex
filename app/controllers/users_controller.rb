@@ -2,7 +2,12 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @users = User.paginate(page: params[:page])
+    @q = User.ransack(params[:q])
+    if @q
+      @users = @q.result(distinct: true).page(params[:page])
+    else
+      @users = User.paginate(page: params[:page])
+    end
   end
 
   def show

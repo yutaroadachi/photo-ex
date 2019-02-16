@@ -1,10 +1,13 @@
-<% provide(:title, 'ユーザー一覧') %>
+<% provide(:title, "ユーザー一覧") %>
 <h1>ユーザー一覧</h1>
-
 <%= will_paginate %>
-
+<dl class="search-box">
+  <%= search_form_for @q, url: users_path do |f| %>
+    <dt><%= f.search_field :name_cont ,placeholder: "ユーザーを検索" %></dt>
+    <dd><%= f.submit "検索", class: "search-btn btn-primary", method: :get %></dd>
+  <% end %>
+</dl>
 <ul class="users">
   <%= render @users %>
 </ul>
-
 <%= will_paginate %>

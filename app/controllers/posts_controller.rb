@@ -1,6 +1,15 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :destroy]
+  before_action :authenticate_user!, only: [:index, :create, :destroy]
   before_action :correct_user,       only: :destroy
+  
+  def index
+    @q = Post.ransack(params[:q])
+    if @q
+      @posts = @q.result(distinct: true).page(params[:page])
+    else
+      @posts = Post.paginate(page: params[:page])
+    end
+  end
   
   def create
     @post = current_user.posts.build(post_params)
