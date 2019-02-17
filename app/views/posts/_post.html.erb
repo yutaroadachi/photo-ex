@@ -10,5 +10,6 @@
     <% if current_user?(post.user) %>
       <%= link_to "展示を取り下げる", post, method: :delete, data: { confirm: "本当に取り下げてよろしいですか？" } %>
     <% end %>
+    <%= render 'posts/like', post: post %>
   </span>
 </li>

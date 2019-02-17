@@ -4,7 +4,7 @@
     <%= f.file_field :photo, accept: 'image/png,image/jpeg' %>
   </span>
   <div class="field">
-    <%= f.text_field :title, placeholder: "写真のタイトルを入力してください" %>
+    <%= f.text_field :title, class: 'form-control', placeholder: "写真のタイトルを入力してください" %>
   </div>
   <%= f.submit "展示する", class: "btn btn-primary" %>
 <% end %>
