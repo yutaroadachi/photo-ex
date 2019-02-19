@@ -3,19 +3,26 @@
   <aside class="col-md-4">
     <section class="user_info">
       <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
+        <%= link_to gravatar_for(@user), @user %>
+        撮影者：<%= link_to @user.name, @user %>
       </h1>
     </section>
     <section class="stats">
       <%= render 'shared/stats' %>
     </section>
+    <section class="post_form">
+      <%= render 'shared/comment_form' %>
+    </section>
   </aside>
   <div class="col-md-8">
     <% if @user.posts.any? %>
-      <h3><%= @post.title %></h3>
       <ol class="posts">
         <%= render @post %>
+      </ol>
+    <% end %>
+    <% if @post.comments.any? %>
+      <ol class="posts">
+        <%= render @comments %>
       </ol>
     <% end %>
   </div>

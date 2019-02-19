@@ -1,7 +1,10 @@
 class Post < ApplicationRecord
   belongs_to :user
   default_scope -> { order(created_at: :desc) }
+  # いいね機能用アソシエーション
   has_many :likes, dependent: :destroy
+  # コメント機能用アソシエーション
+  has_many :comments, dependent: :destroy
   mount_uploader :photo, PhotoUploader
   validates :user_id, presence: true
   validate  :photo_size
