@@ -1,0 +1,12 @@
+<footer class="footer">
+  <small>
+    The <%= link_to "Photo Exhibition", root_path %> by Yutaro Adachi
+  </small>
+  <nav>
+    <ul>
+      <% if user_signed_in? %>
+        <li><%= button_to "展示する", root_path, class: "btn btn-primary btn-sm", method: :get %></li>
+      <% end %>
+    </ul>
+  </nav>
+</footer>
