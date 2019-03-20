@@ -1,7 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/* mixins, variables, etc. */
+/* ミックスイン、変数等 */
 
 $gray-medium-light: #eaeaea;
 
@@ -11,10 +11,11 @@ $gray-medium-light: #eaeaea;
   box-sizing:         border-box;
 }
 
-/* universal */
+/* 全般 */
 
 body {
   padding-top: 60px;
+  font-family: Helvetica,Arial,sans-serif;
 }
 
 section {
@@ -32,7 +33,7 @@ textarea {
   }
 }
 
-/* typography */
+/* タイポグラフィー */
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
@@ -60,15 +61,19 @@ p {
 }
 
 
-/* header */
+/* ヘッダー */
+
+.navbar-inverse {
+  background: #98c5e9;
+  border: 0;
+}
 
 #logo {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: white;
+  color: #00285e;
   text-transform: uppercase;
-  letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
   &:hover {
@@ -77,10 +82,15 @@ p {
   }
 }
 
-/* footer */
+.navbar-inverse .navbar-nav > li > a {
+  color: #00285e;
+  font-weight: bold;
+}
+
+/* フッター */
 
 footer {
-  margin-top: 45px;
+  margin-top: 30px;
   padding-top: 5px;
   border-top: 1px solid $gray-medium-light;
   color: $gray-light;
@@ -103,17 +113,34 @@ footer {
   }
 }
 
-/* miscellaneous */
+/* デバッグ */
 
 .debug_dump {
   clear: both;
   float: left;
   width: 100%;
-  margin-top: 45px;
+  margin-top: 30px;
   @include box_sizing;
 }
 
-/* sidebar */
+/* ボタン */
+
+.btn-primary {
+  background: #98c5e9;
+  color: #00285e;
+  border: 0;
+  font-weight: bold;
+  &:hover {
+    background: #98c5e9;
+    color: white;
+  }
+}
+
+.btn-danger {
+  font-weight: bold;
+}
+
+/* サイドバー */
 
 aside {
   section.user_info {
@@ -188,7 +215,7 @@ aside {
   padding: 0;
 }
 
-/* forms */
+/* フォーム */
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
@@ -230,7 +257,7 @@ input {
   margin-left: 0;
 }
 
-/* Users index */
+/* ユーザー */
 
 .users {
   list-style: none;
@@ -242,7 +269,7 @@ input {
   }
 }
 
-/* posts */
+/* ポスト */
 
 .posts {
   list-style: none;
@@ -290,7 +317,7 @@ span.photo {
   }
 }
 
-/* relationships */
+/* リレーションシップ */
 .btnsub {
   background-color: lightgray;
 }
@@ -305,7 +332,7 @@ span.photo {
   margin-top: 4px \9;
 }
 
-/* searchbox */
+/* 検索ボックス */
 dl.search-box{
   position: relative;
   width: 270px;
@@ -329,8 +356,28 @@ dl.search-box dt input{
   top: 0;
   right: 0;
   width: 50px;
-  line-height: 30px;
+  line-height: 31px;
   margin: 0;
   padding: 0;
   border-radius: 7px;
+}
+
+/* ホームページ */
+
+.center.jumbotron {
+  background: image-url('home.jpg') center;
+  background-size: cover;
+  width: 100%;
+  height: 570px;
+  display: table;
+}
+
+#home {
+  display: table-cell;
+  vertical-align: middle;
+  h1, h2 {
+    color: #00285e;
+    text-shadow: 1px  1px 1px #98c5e9;
+    font-weight: bold;
+  }
 }

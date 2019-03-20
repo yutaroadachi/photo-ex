@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all',
-                               'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application',
-                               'data-turbolinks-track': 'reload' %>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= stylesheet_link_tag 'application', "https://use.fontawesome.com/releases/v5.6.1/css/all.css", media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= render 'layouts/shim' %>
   </head>
   <body>
     <%= render 'layouts/header' %>
-    
     <div class="container">
       <% if notice %>
         <div class="alert alert-info alert-dismissible" role="alert">
@@ -26,12 +22,10 @@
           <div class="alert alert-<%= message_type %>"><%= message %></div>
         <% end %>
       <% end %>
-      
       <%= yield %>
-      
       <%= render 'layouts/footer' %>
-      
       <%= debug(params) if Rails.env.development? %>
     </div>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>

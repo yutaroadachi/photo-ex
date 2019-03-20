@@ -5,11 +5,11 @@ class ApplicationController < ActionController::Base
   
   #リダイレクト先の指定
   def after_sign_up_path_for(resource)
-    @user
+    root_path
   end
 
   def after_sign_in_path_for(resource)
-    @user
+    root_path
   end
 
   #ストロングパラメーターの指定

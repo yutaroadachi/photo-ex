@@ -1,10 +1,13 @@
 <% provide(:title, @post.title) %>
+<h1><%= @post.title %></h1>
+
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
+      <h1>撮影者</h1></br>
       <h1>
         <%= link_to gravatar_for(@user), @user %>
-        撮影者：<%= link_to @user.name, @user %>
+        <%= @user.name %>
       </h1>
     </section>
     <section class="stats">
@@ -24,6 +27,7 @@
       <ol class="posts">
         <%= render @comments %>
       </ol>
+      <%= will_paginate @comments %>
     <% end %>
   </div>
 </div>

@@ -6,7 +6,7 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
       
-      <p>ユーザー情報を変更する<p>
+      <p><b>ユーザー情報を変更する</b><p>
       
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control', autofocus: true, autocomplete: "name" %>
@@ -28,12 +28,12 @@
     
     <div class="gravatar_edit">
       <%= gravatar_for @user %>
-      <br /><br /><br />
+      </br></br></br>
       <a href="http://gravatar.com/emails" target="_blank"><span>画像を変更</span></a>
     </div>
     
-    <br />
-    <p>ユーザーを削除する<p>
+    </br></br>
+    <p><b>ユーザーを削除する</b><p>
     <%= button_to "削除", registration_path(resource_name), data: { confirm: "本当に削除してよろしいですか？" }, method: :delete,
         class: "btn btn-danger" %>
   </div>

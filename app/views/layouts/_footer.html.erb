@@ -5,7 +5,9 @@
   <nav>
     <ul>
       <% if user_signed_in? %>
-        <li><%= button_to "展示する", root_path, class: "btn btn-primary btn-sm", method: :get %></li>
+        <%= link_to root_path do %>
+          <i class="fas fa-camera-retro fa-2x"></i>
+        <% end %>
       <% end %>
     </ul>
   </nav>
