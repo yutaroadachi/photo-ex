@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :show, :create, :destroy]
+  before_action :authenticate_user!, only: [:create, :destroy]
   before_action :correct_user,       only: :destroy
   
   def index
@@ -15,7 +15,9 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comments = @post.comments.paginate(page: params[:page])
     @user = @post.user
-    @comment = current_user.comments.build
+    if signed_in?
+      @comment = current_user.comments.build
+    end
   end
   
   def create

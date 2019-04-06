@@ -68,6 +68,10 @@ p {
   border: 0;
 }
 
+ul.nav li {
+  float: right;
+}
+
 #logo {
   float: left;
   margin-right: 10px;
@@ -255,6 +259,15 @@ input {
 #session_remember_me {
   width: auto;
   margin-left: 0;
+}
+
+/* ホーム */
+#btn-left {
+  margin-right: 10px;
+}
+
+#btn-right {
+  margin-left: 10px;
 }
 
 /* ユーザー */

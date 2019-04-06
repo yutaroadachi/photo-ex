@@ -1,18 +1,25 @@
 <span class="like">
-  <% if post.liking?(current_user.id) %>
-    <%= form_for(post.likes.find_by(user_id: current_user.id), html: { method: :delete }, remote: true) do |f| %>
-      <%= button_tag(class: "btn btn-default btn-xs") do %>
-        <%= content_tag :span, '', class: "glyphicon glyphicon-heart" %>
+  <% if signed_in? %>
+    <% if post.liking?(current_user.id) %>
+      <%= form_for(post.likes.find_by(user_id: current_user.id), html: { method: :delete }, remote: true) do |f| %>
+        <%= button_tag(class: "btn btn-default btn-xs") do %>
+          <%= content_tag :span, '', class: "glyphicon glyphicon-heart" %>
+        <% end %>
+        <span><%= post.likes_count %></span>
       <% end %>
-      <span><%= post.likes_count %></span>
+    <% else %>
+      <%= form_for(post.likes.build, remote: true) do |f| %>
+        <div><%= hidden_field_tag :post_id, post.id %></div>
+        <%= button_tag(class: "btn btn-default btn-xs") do %>
+          <%= content_tag :span, '', class: "glyphicon glyphicon-heart-empty" %>
+        <% end %>
+        <span><%= post.likes_count %></span>
+      <% end %>
     <% end %>
   <% else %>
-    <%= form_for(post.likes.build, remote: true) do |f| %>
-      <div><%= hidden_field_tag :post_id, post.id %></div>
-      <%= button_tag(class: "btn btn-default btn-xs") do %>
-        <%= content_tag :span, '', class: "glyphicon glyphicon-heart-empty" %>
-      <% end %>
-      <span><%= post.likes_count %></span>
+    <%= button_tag(class: "btn btn-default btn-xs") do %>
+      <%= content_tag :span, '', class: "glyphicon glyphicon-heart-empty" %>
     <% end %>
+    <span><%= post.likes_count %></span>
   <% end %>
 </span>
