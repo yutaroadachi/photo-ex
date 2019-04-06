@@ -1,28 +1,39 @@
 source 'https://rubygems.org'
 
-gem 'rails',        '5.1.6'
-gem 'bootstrap-sass', '3.3.7'
+gem 'rails',                   '5.1.6'
+gem 'bootstrap-sass',          '3.3.7'
+gem 'sass-rails',              '5.0.6'
+gem 'coffee-rails',            '4.2.2'
+gem 'jquery-rails',            '4.3.1'
+gem 'turbolinks',              '5.0.1'
+gem 'uglifier',                '3.2.0'
+gem 'jbuilder',                '2.7.0'
+gem 'dotenv-rails'
+gem 'faker'
+gem 'bcrypt',                  '3.1.12'
+gem 'puma',                    '3.9.1'
+
+# 認証機能
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
-gem 'dotenv-rails'
+
+# 画像投稿
+gem 'carrierwave',  '1.2.2'
+gem 'mini_magick',  '4.7.0'
+gem 'fog-aws'
+
+# ページネーション
+gem 'will_paginate',           '3.1.6'
+gem 'bootstrap-will_paginate', '1.0.0'
+
+# 検索機能
+gem 'ransack'
+
+# 日本語化
 gem 'rails-i18n'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
-gem 'faker'
-gem 'will_paginate',           '3.1.6'
-gem 'bootstrap-will_paginate', '1.0.0'
-gem 'bcrypt',       '3.1.12'
-gem 'carrierwave',  '1.2.2'
-gem 'mini_magick',  '4.7.0'
-gem 'ransack'
-gem 'puma',         '3.9.1'
-gem 'sass-rails',   '5.0.6'
-gem 'uglifier',     '3.2.0'
-gem 'coffee-rails', '4.2.2'
-gem 'jquery-rails', '4.3.1'
-gem 'turbolinks',   '5.0.1'
-gem 'jbuilder',     '2.7.0'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
@@ -40,12 +51,9 @@ group :test do
   gem 'rails-controller-testing', '1.0.2'
   gem 'minitest',                 '5.10.3'
   gem 'minitest-reporters',       '1.1.14'
-  gem 'guard',                    '2.13.0'
-  gem 'guard-minitest',           '2.4.4'
 end
 
 group :production do
   gem 'pg', '0.20.0'
   gem 'rails_12factor'
-  gem 'fog', '1.42'
 end
