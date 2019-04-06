@@ -8,33 +8,34 @@
       
       <p><b>ユーザー情報を変更する</b><p>
       
+      <div class="gravatar_edit">
+        <%= gravatar_for @user %>
+        </br></br></br>
+        <a href="http://gravatar.com/emails" target="_blank"><span>プロフィール画像を変更</span></a>
+      </div>
+      </br>
+      
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control', autofocus: true, autocomplete: "name" %>
 
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control', autocomplete: "email" %>
       
-      <%= f.label :current_password %> <i>（本人確認のため、現在のパスワードを入力してください）</i>
-      <%= f.password_field :current_password, class: 'form-control', autocomplete: "current-password" %>
-
       <%= f.label :password %> <i>（パスワードを変更したくない場合は空欄にしてください）</i>
       <%= f.password_field :password, class: 'form-control', autocomplete: "new-password" %>
 
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: "new-password" %>
 
+      </br>
+      <%= f.label :current_password %> <i>（本人確認のため、現在のパスワードを入力してください）</i>
+      <%= f.password_field :current_password, class: 'form-control', autocomplete: "current-password" %>
+
       <%= f.submit "変更", class: "btn btn-primary" %>
     <% end %>
     
-    <div class="gravatar_edit">
-      <%= gravatar_for @user %>
-      </br></br></br>
-      <a href="http://gravatar.com/emails" target="_blank"><span>画像を変更</span></a>
-    </div>
-    
-    </br></br>
-    <p><b>ユーザーを削除する</b><p>
-    <%= button_to "削除", registration_path(resource_name), data: { confirm: "本当に削除してよろしいですか？" }, method: :delete,
-        class: "btn btn-danger" %>
+    </br>
+    <%= link_to "ユーザー情報を削除する", registration_path(resource_name), method: :delete, 
+      data: { confirm: "本当に削除してよろしいですか？" }, class: 'pull-right' %>
   </div>
 </div>
