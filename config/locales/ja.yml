@@ -4,6 +4,8 @@ ja:
     attributes:
       post:
         title: タイトル
+      comment:
+        content: コメント
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

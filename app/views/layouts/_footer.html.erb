@@ -1,14 +1,5 @@
 <footer class="footer">
   <small>
-    The <%= link_to "Photo Exhibition", root_path %> by Yutaro Adachi
+    The <%= link_to "Photo Exhibition", root_path %> by yutaroadachi
   </small>
-  <nav>
-    <ul>
-      <% if user_signed_in? %>
-        <%= link_to root_path do %>
-          <i class="fas fa-camera-retro fa-2x"></i>
-        <% end %>
-      <% end %>
-    </ul>
-  </nav>
 </footer>
