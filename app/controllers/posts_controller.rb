@@ -12,11 +12,15 @@ class PostsController < ApplicationController
   end
   
   def show
-    @post = Post.find(params[:id])
-    @comments = @post.comments.paginate(page: params[:page])
-    @user = @post.user
-    if signed_in?
-      @comment = current_user.comments.build
+    begin
+      @post = Post.find(params[:id])
+      @comments = @post.comments.paginate(page: params[:page])
+      @user = @post.user
+      if signed_in?
+        @comment = current_user.comments.build
+      end
+    rescue ActiveRecord::RecordNotFound
+      redirect_to posts_path
     end
   end
   

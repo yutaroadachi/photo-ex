@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :post do
-    title { "post" }
+    sequence(:title) { |n| "post-#{n}" }
     association :user
   end
 end
